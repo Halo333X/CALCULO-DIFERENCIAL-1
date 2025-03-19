@@ -1,2 +1,2 @@
 # CALCULO-DIFERENCIAL-1
- By @Halo333X and ...
+ By @Halo333X and @ashl3ycodes

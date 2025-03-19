@@ -1,13 +1,13 @@
 {
   "name": "calculo-diferencial-1",
   "version": "1.0.0",
-  "description": "By 'Gael Orian Acevedo Miralles' and ...",
+  "description": "By 'Gael Orian Acevedo Miralles' and 'Ashley'",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts"
   },
   "keywords": [],
-  "author": "Gael Orian Acevedo Miralles' and @...",
+  "author": "'Gael Orian Acevedo Miralles' and @ashl3ycodes",
   "license": "ISC",
   "dependencies": {
     "node-geogebra": "^1.2.1"
