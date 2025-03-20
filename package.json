@@ -4,12 +4,21 @@
   "description": "By 'Gael Orian Acevedo Miralles' and 'Ashley'",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "web": "ts-node public/app.ts"
   },
   "keywords": [],
   "author": "'Gael Orian Acevedo Miralles' and @ashl3ycodes",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.21.2",
     "node-geogebra": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
   }
 }

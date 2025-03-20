@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Asíntotas y límites</title>
+    <script src="https://www.desmos.com/api/v1.10/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+  </head>
+  <body>
+    <header>Asíntotas/Límites</header>
+    <div class="container">
+      <form id="addFunctionForm">
+        <b><label for="nombre">Lista de funciones</label></b><br /><br />
+        
+        <div id="inputFieldsContainer">
+          <input type="text" id="function" placeholder="Escribe una función..." class="functionInput" />
+        </div>
+        
+        <button type="button" id="addInputButton">+</button><br /><br />
+        <input type="submit" value="Generar Gráfico" />
+      </form>
+    </div>
+    <div class="calculator" id="calculator" style="width: 600px; height: 400px; display: none;"></div>
+    
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
