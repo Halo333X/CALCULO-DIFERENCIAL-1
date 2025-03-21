@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Asíntotas y límites</title>
+    <title>CD - Asíntotas y límites</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.min.js"></script>
     <script src="https://www.desmos.com/api/v1.10/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
   </head>
   <body>
-    <header>Asíntotas/Límites</header>
+    <header>Cálculo Diferencial - Asíntotas/Límites</header>
     <div class="container">
       <form id="addFunctionForm">
         <b><label for="nombre">Lista de funciones</label></b><br /><br />
@@ -18,11 +19,23 @@
         </div>
         
         <button type="button" id="addInputButton">+</button><br /><br />
-        <input type="submit" value="Generar Gráfico" />
+        <input type="submit" value="Generar" />
       </form>
     </div>
     <div class="calculator" id="calculator" style="width: 600px; height: 400px; display: none;"></div>
-    
+    <b>
+    <table>
+      <thead>
+          <tr>
+              <th>Función</th>
+              <th>Asíntota X</th>
+              <th>Asíntota Y</th>
+              <th>Límite</th>
+          </tr>
+      </thead>
+      <tbody id="resultsTableBody"></tbody>
+    </b>
+  </table>  
     <script src="./scripts/main.js"></script>
   </body>
 </html>

@@ -96,15 +96,82 @@ class GraphGenerator {
             border: false
         });
 
-        // Agregar las funciones al gráfico
+        // Agregar las funciones al gráfico y generar la tabla
         const functionInputs = document.querySelectorAll(".functionInput");
+        const tableBody = document.getElementById("resultsTableBody");
+        tableBody.innerHTML = ""; // Limpiar tabla anterior
+
         functionInputs.forEach(input => {
             const functionValue = input.value.trim();
             if (functionValue) {
                 this.addExpression(functionValue);
+                this.addTableRow(functionValue);
             }
         });
     }
+
+    addTableRow(func) {
+        const tableBody = document.getElementById("resultsTableBody");
+        const row = document.createElement("tr");
+    
+        const functionCell = document.createElement("td");
+        functionCell.textContent = func;
+    
+        const asymptoteXCell = document.createElement("td");
+        const asymptoteYCell = document.createElement("td");
+        const limitCell = document.createElement("td");
+    
+        try {
+            const parsedFunction = math.parse(func);
+            const compiledFunction = parsedFunction.compile();
+            
+            // Buscar asíntotas verticales resolviendo el denominador = 0
+            let asymptotesX = [];
+            if (func.includes("/")) {
+                const parts = func.split("/");
+                if (parts.length === 2) {
+                    const denominator = math.parse(parts[1]).compile();
+                    let criticalPoints = [];
+                    // Encontrar los puntos donde el denominador se vuelve 0
+                    for (let x = -10; x <= 10; x += 0.1) {
+                        try {
+                            if (Math.abs(denominator.evaluate({ x })) < 1e-5) {
+                                criticalPoints.push(x);
+                            }
+                        } catch {}
+                    }
+                    // Ahora revisar esos puntos como posibles asíntotas verticales
+                    asymptotesX = criticalPoints.map(x => `x = ${x.toFixed(2)}`);
+                }
+            }
+            asymptoteXCell.textContent = asymptotesX.length ? asymptotesX.join(", ") : "Ninguna";
+    
+            // Buscar asíntotas horizontales para funciones racionales
+            let limitPosInfinity = compiledFunction.evaluate({ x: 1e6 });
+            let limitNegInfinity = compiledFunction.evaluate({ x: -1e6 });
+            asymptoteYCell.textContent = limitPosInfinity === limitNegInfinity ? `y = ${limitPosInfinity.toFixed(2)}` : "Ninguna";
+    
+            // Calcular el límite en puntos donde el denominador es 0
+            let criticalLimits = asymptotesX.map(a => {
+                let xVal = parseFloat(a.split("=")[1]);
+                let leftLimit = compiledFunction.evaluate({ x: xVal - 0.01 });
+                let rightLimit = compiledFunction.evaluate({ x: xVal + 0.01 });
+                return `lim x→${xVal}⁻: ${leftLimit.toFixed(2)}, lim x→${xVal}⁺: ${rightLimit.toFixed(2)}`;
+            });
+            limitCell.textContent = criticalLimits.length ? criticalLimits.join("; ") : "Ninguno";
+        } catch (error) {
+            asymptoteXCell.textContent = "Error";
+            asymptoteYCell.textContent = "Error";
+            limitCell.textContent = "Error";
+        }
+    
+        row.appendChild(functionCell);
+        row.appendChild(asymptoteXCell);
+        row.appendChild(asymptoteYCell);
+        row.appendChild(limitCell);
+    
+        tableBody.appendChild(row);
+    }    
 }
 
 const graphGenerator = new GraphGenerator();

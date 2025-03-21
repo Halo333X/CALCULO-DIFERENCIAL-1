@@ -6,28 +6,13 @@
 
 header {
   padding: 15px;
-  background-color: black;
+  background-color: #2a2a2a;
   color: white;
   text-align: center;
 }
 
 .container {
   margin: 30px;
-}
-
-input[type="text"] {
-  display: flex;
-  width: 40%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-
-input[type="submit"] {
-  width: 20%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
 }
 
 button {
@@ -45,7 +30,7 @@ button {
 
 button:hover {
   color: white;
-  background-color: #555555;
+  background-color: #2a2a2a;
 }
 
 .calculator {
@@ -64,4 +49,128 @@ button:hover {
 .delete-btn {
     margin-left: 10px;
     color: red;
+}
+
+/* Estilo global */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Contenedor de formulario */
+.container {
+  margin: 30px;
+}
+
+/* Estilo para los inputs de texto */
+input[type="text"] {
+  display: flex;
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #2a2a2a;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  width: 100px;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type="submit"]:hover {
+  color: white;
+  background-color: #2a2a2a;
+}
+
+/* Estilo para los botones */
+button {
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #2a2a2a;
+  color: black;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  color: white;
+  background-color: #2a2a2a;
+}
+
+/* Estilo de la calculadora */
+.calculator {
+  text-align: center;
+  margin: 20px;
+  padding: 20px 20px;
+  border: 2px solid black;
+}
+
+/* Estilo para el grupo de inputs */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Estilo para el botón de eliminar en cada input */
+.delete-btn {
+  margin-left: 10px;
+  color: black;
+}
+
+.delete-btn:hover {
+  color: white;
+}
+
+/* Estilo para la tabla */
+table {
+  font-size: 10px;
+  width: 50%;
+  border-collapse: collapse;
+  margin: 25px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #555555;
+  color: white;
+}
+
+table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table td {
+  text-align: center;
+}
+
+/* Estilo adicional para las celdas vacías en la tabla */
+table td.empty-cell {
+  color: #999;
+  font-style: italic;
 }
