@@ -160,9 +160,9 @@ class GraphGenerator {
             });
             limitCell.textContent = criticalLimits.length ? criticalLimits.join("; ") : "Ninguno";
         } catch (error) {
-            asymptoteXCell.textContent = "Error";
-            asymptoteYCell.textContent = "Error";
-            limitCell.textContent = "Error";
+            asymptoteXCell.textContent = "N/A";
+            asymptoteYCell.textContent = "N/A";
+            limitCell.textContent = "N/A";
         }
     
         row.appendChild(functionCell);
